@@ -130,6 +130,7 @@ function list_files(path,files){
         }else{
             var p = path+item.name;
             var c = "file";
+	    var imageshow = "";
             if(item.name == "README.md"){
                  get_file(p, item, function(data){
                     markdown("#readme_md",data);
@@ -142,10 +143,12 @@ function list_files(path,files){
             }
             var ext = p.split('.').pop();
             if("|html|php|css|go|java|js|json|txt|sh|md|mp4|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
+		    imageshow = "<img src='" + p + "'></img>";
 	            p += "?a=view";
 	            c += " view";
             }
             html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
+	          ${imageshow}
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate">
 	          <i class="mdui-icon material-icons">insert_drive_file</i>
 	            ${item.name}
