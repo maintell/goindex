@@ -379,6 +379,7 @@ $(function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
         render(url);
+	new LazyLoad({elements_selector: ".lazy",load_delay: 300})();
         return false;
     });
 
@@ -389,11 +390,5 @@ $(function(){
         return false;
     });
     
-    render(path);
-	
-    var lazyLoadInstance = new LazyLoad({
-        elements_selector: ".lazy",
-        load_delay: 300
-    });
-    lazyLoadInstance.update();
+    render(path);	
 });
