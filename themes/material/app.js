@@ -374,17 +374,20 @@ window.onpopstate = function(){
 
 $(function(){
     init();
-    var lazyloader = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
+    
     var path = window.location.pathname;
     $("body").on("click",'.folder',function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
         render(url);
-	setTimeout(function(){
+	setTimeout(function(){		
 	     console.log('lazy load');
+	     var lazyloader = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
 	     lazyloader.update();
-	},1000);
+	},1500);
 	
+	var lazyloader1 = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
+	lazyloader1.update();
         return false;
     });
 
