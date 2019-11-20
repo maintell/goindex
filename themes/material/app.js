@@ -144,7 +144,7 @@ function list_files(path,files){
             }
             var ext = p.split('.').pop();
             if("|html|php|css|go|java|js|json|txt|sh|md|mp4|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
-		    imageshow = "<img class='lazy' data-src='" + p + "'></img>";
+		    imageshow = "<img class=\"lazy\" data-src=\"" + p + "\" width=\"980\"></img>";
 	            p += "?a=view";
 	            c += " view";
             }
@@ -393,8 +393,7 @@ $(function(){
 	
     var lazyLoadInstance = new LazyLoad({
         elements_selector: ".lazy",
-        load_delay: 300,
-	threshold: 0
+        load_delay: 300
     });
     lazyLoadInstance.update();
 });
