@@ -389,6 +389,7 @@ $(function(){
           $('.lazy').each(function () {
             var imagex = $(this);
             var imgOriginal = imagex.data('data-src');
+	    console.log(imagex.data('src'));
 	    if(imagex.data('src') === undefined){
                $(imagex).attr('src', imgOriginal);
 	       return;
