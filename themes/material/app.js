@@ -380,14 +380,24 @@ $(function(){
         var url = $(this).attr('href');
         history.pushState(null, null, url);
         render(url);
-	setTimeout(function(){		
-	     console.log('lazy load');
-	     var lazyloader = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
-	     lazyloader.update();
-	},1500);
+	// setTimeout(function(){		
+	//     console.log('lazy load');
+	//     var lazyloader = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
+	//     lazyloader.update();
+	// },1500);
+	setInterval(function () {
+          $('.lazy').each(function () {
+            var imagex = $(this);
+            var imgOriginal = imagex.data('data-src');
+	    if(imagex.data('src') === undefined){
+               $(imagex).attr('src', imgOriginal);
+	       return;
+	    }
+          });
+        }, 500);
 	
-	var lazyloader1 = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
-	lazyloader1.update();
+	// var lazyloader1 = new LazyLoad({elements_selector: ".lazy",load_delay: 300});
+	// lazyloader1.update();
         return false;
     });
 
